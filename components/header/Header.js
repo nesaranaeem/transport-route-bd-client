@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import ThemeSwitcher from "../common/ThemeSwitcher";
 import {
   mainDesktopMenuItems,
   mainMobileMenuItems,

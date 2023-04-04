@@ -19,10 +19,16 @@ export const mainMobileMenuItems = (
       Home
     </Link>
     <Link
-      href="/"
+      href="/about"
       className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
     >
       About
+    </Link>
+    <Link
+      href="/disclaimer"
+      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
+    >
+      Disclaimer
     </Link>
   </>
 );
@@ -35,10 +41,16 @@ export const mainDesktopMenuItems = (
       Home
     </Link>
     <Link
-      href="/"
+      href="/about"
       className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white"
     >
       About
+    </Link>
+    <Link
+      href="/disclaimer"
+      className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white"
+    >
+      Disclaimer
     </Link>
   </>
 );

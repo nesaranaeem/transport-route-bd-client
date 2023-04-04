@@ -1,6 +1,6 @@
 # Transport Route BD Client
 
-Transport Route BD Server is a backend server for the Transport BD frontend. It provides APIs for retrieving and posting transport route data such as bus routes and bus names.
+Transport Route BD Client side. It request APIs from it's backend. and display result.
 
 ## Requirements
 

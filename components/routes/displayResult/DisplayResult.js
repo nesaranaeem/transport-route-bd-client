@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BsFillInfoCircleFill, BsFillEmojiFrownFill } from "react-icons/bs";
 import { css } from "@emotion/react";
 import { ClipLoader } from "react-spinners";
 import BusDetailsCard from "./BusDetailsCard";
@@ -36,7 +37,24 @@ function DisplayResult({ from, to }) {
       ) : (
         <>
           <div>
-            <h2>{busData.total_count}</h2>
+            {busData?.total_count > 0 ? (
+              <>
+                <div className="flex justify-center items-center mb-2">
+                  <BsFillInfoCircleFill className="mr-2 text-xl" />
+                  <span className="text-gray-700 text-2xl font-bold dark:text-white">
+                    Total {busData?.total_count} Bus Found
+                  </span>
+                </div>
+              </>
+            ) : (
+              <div className="flex justify-center items-center mb-2">
+                <BsFillEmojiFrownFill className="mr-2 text-xl" />
+                <span className="text-gray-700 text-2xl font-bold dark:text-white">
+                  এই রুটে কোন বাস পাওয়া যায় নি। সম্ভবত ডিরেক্ট এই রুটে কোন বাস
+                  চলাচল করে না।
+                </span>
+              </div>
+            )}
           </div>
           <div>
             <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center">

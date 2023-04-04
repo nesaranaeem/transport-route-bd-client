@@ -3,7 +3,7 @@ import RouteList from "../routeList/RouteList";
 
 const Routes = () => {
   return (
-    <div className="">
+    <div>
       <div>
         <RouteList />
       </div>
