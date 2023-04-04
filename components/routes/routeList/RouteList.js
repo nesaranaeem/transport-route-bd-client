@@ -47,74 +47,75 @@ function RouteList() {
   `;
 
   return (
-    <div className="flex items-center justify-center p-12">
-      {isLoading ? (
-        <ScaleLoader
-          css={override}
-          size={150}
-          color={"#123abc"}
-          loading={isLoading}
+    <>
+      <div className="flex items-center justify-center p-12">
+        {isLoading ? (
+          <ScaleLoader
+            css={override}
+            size={150}
+            color={"#123abc"}
+            loading={isLoading}
+          />
+        ) : (
+          <>
+            <div className="mx-auto w-full max-w-[550px]">
+              <div className="-mx-3 flex flex-wrap">
+                <div className="w-full p-3 sm:w-1/2 dark:bg-gray-900 text-[#07074D] dark:text-white">
+                  <div className="mb-2">
+                    <label
+                      for="From"
+                      className="mb-2 block text-base text-center font-medium"
+                    >
+                      From
+                    </label>
+                    <Select
+                      options={options}
+                      onChange={handleSelect1Change}
+                      value={selectedOption1}
+                      isSearchable={true}
+                      className="w-full rounded-md border border-[#e0e0e0] bg-white dark:bg-gray-800 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    />
+                  </div>
+                </div>
+                <div className="w-full p-3 sm:w-1/2 dark:bg-gray-900 text-[#07074D] dark:text-white">
+                  <div className="mb-2">
+                    <label
+                      for="To"
+                      className="mb-2 block text-base text-center font-medium"
+                    >
+                      To
+                    </label>
+                    <Select
+                      options={options}
+                      onChange={handleSelect2Change}
+                      value={selectedOption2}
+                      isSearchable={true}
+                      className="w-full rounded-md border border-[#e0e0e0] bg-white dark:bg-gray-800 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-center py-3">
+                <button
+                  onClick={handleButtonClick}
+                  className="hover:shadow-form rounded-md bg-[#6A64F1] dark:bg-gray-800 dark:hover:dark:bg-gray-900 py-3 px-8 text-center text-base font-semibold text-white outline-none"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+      {showResult && (
+        <DisplayResult
+          key={`${selectedOption1?.value}-${selectedOption2?.value}`}
+          from={selectedOption1?.label}
+          to={selectedOption2?.label}
         />
-      ) : (
-        <>
-          <div className="mx-auto w-full max-w-[550px]">
-            <div className="-mx-3 flex flex-wrap">
-              <div className="w-full p-3 sm:w-1/2 dark:bg-gray-900 text-[#07074D] dark:text-white">
-                <div className="mb-5">
-                  <label
-                    for="From"
-                    className="mb-3 block text-base text-center font-medium"
-                  >
-                    From
-                  </label>
-                  <Select
-                    options={options}
-                    onChange={handleSelect1Change}
-                    value={selectedOption1}
-                    isSearchable={true}
-                    className="w-full rounded-md border border-[#e0e0e0] bg-white dark:bg-gray-800 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
-              </div>
-              <div className="w-full p-3 sm:w-1/2 dark:bg-gray-900 text-[#07074D] dark:text-white">
-                <div className="mb-5">
-                  <label
-                    for="To"
-                    className="mb-3 block text-base text-center font-medium"
-                  >
-                    To
-                  </label>
-                  <Select
-                    options={options}
-                    onChange={handleSelect2Change}
-                    value={selectedOption2}
-                    isSearchable={true}
-                    className="w-full rounded-md border border-[#e0e0e0] bg-white dark:bg-gray-800 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-center py-4">
-              <button
-                onClick={handleButtonClick}
-                className="hover:shadow-form rounded-md bg-[#6A64F1] dark:bg-gray-800 dark:hover:dark:bg-gray-900 py-3 px-8 text-center text-base font-semibold text-white outline-none"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-
-          {showResult && (
-            <DisplayResult
-              key={`${selectedOption1?.value}-${selectedOption2?.value}`}
-              from={selectedOption1?.label}
-              to={selectedOption2?.label}
-            />
-          )}
-        </>
       )}
-    </div>
+    </>
   );
 }
 
