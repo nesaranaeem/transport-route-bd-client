@@ -42,6 +42,12 @@ export const mainMobileMenuItems = (
     >
       Disclaimer
     </Link>
+    <Link
+      href="/contribute"
+      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
+    >
+      Contribute
+    </Link>
   </>
 );
 export const mainDesktopMenuItems = (
@@ -75,6 +81,12 @@ export const mainDesktopMenuItems = (
       className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white"
     >
       Disclaimer
+    </Link>
+    <Link
+      href="/contribute"
+      className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white"
+    >
+      Contribute
     </Link>
   </>
 );
