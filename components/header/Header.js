@@ -5,6 +5,7 @@ import {
   mainMobileMenuItems,
   rightSideMenuItems,
 } from "../common/MenuItems";
+import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +25,9 @@ export default function Header() {
             <FaBars className="w-6 h-6 dark:text-blue-600" />
           )}
         </button>
+        <Link href="/" className="text-xl font-bold font-mono px-2">
+          TransportBD
+        </Link>
         {/* <img src="/logo.svg" alt="Transport Route BD" className="w-32 h-auto" /> */}
         <div />
         {rightSideMenuItems}
@@ -36,8 +40,12 @@ export default function Header() {
 
       {/* Desktop menu */}
       <nav className="hidden lg:flex lg:items-center lg:justify-end text-gray-700 dark:text-white">
+        <Link href="/" className="text-xl font-bold font-mono px-2">
+          TransportBD
+        </Link>
         {mainDesktopMenuItems}
       </nav>
+
       <div className="hidden lg:block">{rightSideMenuItems}</div>
     </header>
   );
