@@ -19,6 +19,18 @@ export const mainMobileMenuItems = (
       Home
     </Link>
     <Link
+      href="/buses"
+      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
+    >
+      Bus List
+    </Link>
+    <Link
+      href="/statistics"
+      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
+    >
+      Statistics
+    </Link>
+    <Link
       href="/about"
       className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
     >
@@ -39,6 +51,18 @@ export const mainDesktopMenuItems = (
       className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white"
     >
       Home
+    </Link>
+    <Link
+      href="/buses"
+      className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white"
+    >
+      Bus List
+    </Link>
+    <Link
+      href="/statistics"
+      className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white"
+    >
+      Statistics
     </Link>
     <Link
       href="/about"

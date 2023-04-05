@@ -10,13 +10,18 @@ function RouteList() {
   const [selectedOption2, setSelectedOption2] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showResult, setShowResult] = useState(false);
+  const [totalRoutes, setTotalRoutes] = useState(0);
 
   useEffect(() => {
     fetch("https://transport-route-bd-server.vercel.app/api/v1/bus/allRoutes")
       .then((response) => response.json())
       .then((data) => {
+        setTotalRoutes(data.total_count);
         setOptions(
-          data.map((item) => ({ label: item.routeName, value: item.routeName }))
+          data.routeList.map((item) => ({
+            label: item.routeName,
+            value: item.routeName,
+          }))
         );
         setIsLoading(false);
       });
@@ -59,6 +64,12 @@ function RouteList() {
         ) : (
           <>
             <div className="mx-auto w-full max-w-[550px]" id="routes">
+              <p className="text-base text-center font-bold dark:text-white">
+                Total Routes:{" "}
+                <span className="text-base text-center font-bold bg-yellow-100 text-yellow-800 mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">
+                  {totalRoutes}
+                </span>
+              </p>
               <div className="-mx-3 flex flex-wrap">
                 <div className="w-full p-3 sm:w-1/2 dark:bg-gray-900 text-[#07074D] dark:text-white">
                   <div className="mb-2">
@@ -95,7 +106,6 @@ function RouteList() {
                   </div>
                 </div>
               </div>
-
               <div className="flex justify-center py-3">
                 <button
                   onClick={handleButtonClick}
