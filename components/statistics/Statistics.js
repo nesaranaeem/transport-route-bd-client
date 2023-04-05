@@ -29,7 +29,7 @@ const Statistics = () => {
     labels: ["All Routes", "All Bus"],
     datasets: [
       {
-        label: "Total Statistics",
+        label: "Total",
         data: [allRoutesCount, busCount],
         backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
         borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
@@ -58,7 +58,7 @@ const Statistics = () => {
   return (
     <div>
       <div className="mx-auto w-full max-w-[550px]">
-        <h2 className="text-center my-2">Total Counts</h2>
+        <h2 className="text-center my-2">Total Statistics</h2>
         {isLoading ? (
           <>
             <div className="flex items-center justify-center p-12">
