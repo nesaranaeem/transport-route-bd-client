@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import {
-  mainDesktopMenuItems,
-  mainMobileMenuItems,
-  rightSideMenuItems,
-} from "../common/MenuItems";
+import { mainMenuItems, rightSideMenuItems } from "../common/MenuItems";
 import Link from "next/link";
 
 export default function Header() {
@@ -12,6 +8,9 @@ export default function Header() {
 
   function toggleMenu() {
     setIsOpen(!isOpen);
+  }
+  function closeMenu() {
+    setIsOpen(false);
   }
 
   return (
@@ -35,7 +34,20 @@ export default function Header() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <nav className="block py-4 lg:hidden">{mainMobileMenuItems}</nav>
+        <nav className="block py-4 lg:hidden">
+          {mainMenuItems.map((menuItem) => (
+            <>
+              <Link
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
+                href={menuItem.href}
+                key={menuItem.href}
+                onClick={closeMenu}
+              >
+                {menuItem.label}
+              </Link>
+            </>
+          ))}
+        </nav>
       )}
 
       {/* Desktop menu */}
@@ -43,7 +55,17 @@ export default function Header() {
         <Link href="/" className="text-xl font-bold font-mono px-2">
           TransportBD
         </Link>
-        {mainDesktopMenuItems}
+        {mainMenuItems.map((menuItem) => (
+          <>
+            <Link
+              className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white"
+              href={menuItem.href}
+              key={menuItem.href}
+            >
+              {menuItem.label}
+            </Link>
+          </>
+        ))}
       </nav>
 
       <div className="hidden lg:block">{rightSideMenuItems}</div>

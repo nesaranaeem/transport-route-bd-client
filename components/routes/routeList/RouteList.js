@@ -18,7 +18,7 @@ function RouteList() {
       .then((data) => {
         setTotalRoutes(data.total_count);
         setOptions(
-          data.routeList.map((item) => ({
+          data.routeList?.map((item) => ({
             label: item.routeName,
             value: item.routeName,
           }))
